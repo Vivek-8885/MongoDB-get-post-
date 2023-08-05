@@ -1,0 +1,41 @@
+<props>
+if we sending a specific data to another file then we use props concept.
+since we are using function concept, we will pass the values with parameters.
+in app.js
+<Navbar title="Develop" About="New About" ></Navbar>
+here the values we are passing are title and about and they are received to Navbar
+how do we use them in navbar?
+{props.title}, {props.About}
+this is how they will be accessed in the navabar.
+
+Now if we want to specify the type of the data to be sent then we should use PropTypes concept
+where we declare the datatype of the values that are to be passed.
+where to specify them?
+we need to declare the datatype in navbar file itself  its declaration is:
+Navbar.prototype={
+    title:PropTypes.string,
+    About:PropTypes.string,
+}
+the above code will make title as string and also about as string.
+
+if we are not passing any values from the navbar then we can set some default propvalues
+it can be done by using default props
+Navbar.defaultProps={
+    title: "Default title",
+    About:"Default About"
+}
+similarly if we need to make the parameters as required then we make it as:
+Navbar.prototype={
+    title:PropTypes.string.isRequired,
+    About:PropTypes.string.isRequired,
+}
+above will throw error if we dont pass any of the parameters.
+
+
+STATES:
+const[text,setText]=useState("this is assigned data to text")
+the line will assign "this is assigned data to text" to the text variable.
+and this varibale is printed by {text}
+and if we want to modify the data of variable then we cannot do it directly.
+text="this is modified one" --> it is wrong way to do.
+setText(text)="this is modified one" --> it is the correct way of changing the variable data.
